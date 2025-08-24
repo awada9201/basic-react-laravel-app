@@ -5,9 +5,13 @@ const axiosClient = axios.create({
 })
 
 axiosClient.interceptors.request.use((config) =>{
-    const token = localStorage.get('ACCESS_TOKEN');
-    config.headers.Authorization = `Bearer ${token}`
-    return config;
+    try{
+        const token = localStorage.getItem('ACCESS_TOKEN');
+        config.headers.Authorization = `Bearer ${token}`
+        return config;
+    } catch (err){
+        console.log(err);
+    }
 })
 
 axiosClient.interceptors.response.use((response) =>{
