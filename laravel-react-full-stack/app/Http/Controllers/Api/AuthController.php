@@ -8,7 +8,6 @@ use App\Http\Requests\SignupRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -44,13 +43,13 @@ class AuthController extends Controller
         ]);
         // ----- ALTERNATIVE TO ABOVE -----
 
-        return response(compact('user', 'token'));
+        // return response(compact('user', 'token'));
     }
 
     public function logout(Request $request){
         /** @var User $user */
         $user = $request->user();
-        $user->currentAccessToken()->delete();
+        // $user->currentAccessToken()->delete();
         
         return response ('', 204);
     }

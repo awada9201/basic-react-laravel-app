@@ -22,11 +22,13 @@ export default function Signup () {
 
         console.log(payload)
         axiosClient.post('/signup', payload).then(({data})=>{
+            console.log(data)
             setToken(data.token);
             setUser(data.user);
         }).catch(error =>{
+            console.log(error)
             const response = error.response;
-            if(response && response.status === 402){ // Validation error
+            if(response && response.status === 422){ // Validation error
                 console.log(response.data.errors);
             }
         })

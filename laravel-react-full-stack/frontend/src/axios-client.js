@@ -19,9 +19,9 @@ axiosClient.interceptors.response.use((response)=>{
     return response;
 }, (error)=>{
     // Rejected response
-    if(response.status === 401){
-        localStorage.removeItem('ACCESS_TOKEN')
-    }
+    // if(response.status === 401){
+    //     localStorage.removeItem('ACCESS_TOKEN')
+    // }
     console.log("Error: ", error);
     // else .... other error statuses ex: 404, ...
 })
