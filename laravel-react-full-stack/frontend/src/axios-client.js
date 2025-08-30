@@ -18,12 +18,15 @@ axiosClient.interceptors.response.use((response)=>{
     // Accepted response
     return response;
 }, (error)=>{
-    // Rejected response
-    // if(response.status === 401){
-    //     localStorage.removeItem('ACCESS_TOKEN')
-    // }
-    console.log("Error: ", error);
-    // else .... other error statuses ex: 404, ...
+    // try{
+        // Rejected response
+        const {response} = error;
+        if(response.status === 401){
+            localStorage.removeItem('ACCESS_TOKEN')
+        }
+        // else .... other error statuses ex: 404, ...
+
+        throw response; // Throw the error to be catched by the page try-catch handler
 })
 
 export default axiosClient;
