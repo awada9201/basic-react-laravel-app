@@ -22,7 +22,7 @@ export default function Userform() {
                 setIsLoading(false);
                 setUser(data.data);
                 /*
-                  - to prevent the data.data, in the backend side under
+                  - To prevent the data.data, in the backend side under
                     UserResource, add the line 'public static $wrap = false;'
                 */
             })
